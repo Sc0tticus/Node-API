@@ -36,4 +36,14 @@ app.post('/api/books/addBook', (req, resp) => {
 	resp.send(book);
 });
 
+// Creating PUT request
+app.put('/api/books/:id', (req, resp) => {
+	const book = books.find(book => book.id === parseInt(req.params.id));
+	if (!book) resp.status(404).send('books not found');
+
+	book.title = req.body.title;
+
+	resp.send(book);
+});
+
 app.listen(8080);
