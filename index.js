@@ -26,4 +26,14 @@ app.get('/api/books/:id', (req, resp) => {
 	resp.send(book);
 });
 
+// Creating POST requests
+app.post('/api/books/addBook', (req, resp) => {
+	const book = {
+		id: books.length + 1,
+		title: req.body.title
+	};
+	books.push(book);
+	resp.send(book);
+});
+
 app.listen(8080);
