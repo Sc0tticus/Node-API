@@ -46,4 +46,14 @@ app.put('/api/books/:id', (req, resp) => {
 	resp.send(book);
 });
 
+// Creating DELETE endpoint
+app.delete('/api/books/:id', (req, resp) => {
+	const book = books.find(book => book.id === parseInt(req.params.id));
+	if (!book) resp.status(404).send('books not found');
+	const index = books.indexOf(book);
+	books.splice(index, 1);
+	resp.send(book);
+
+	resp.send(book);
+});
 app.listen(8080);
