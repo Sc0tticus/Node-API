@@ -16,4 +16,8 @@ app.get('/', (req, resp) => {
 	resp.send('Welcome to Study Automation to learn REST API with NodeJS');
 });
 
+app.get('/api/books', (req, resp) => {
+	resp.send(books);
+});
+
 app.listen(8080);
