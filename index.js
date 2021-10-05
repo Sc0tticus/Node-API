@@ -20,4 +20,10 @@ app.get('/api/books', (req, resp) => {
 	resp.send(books);
 });
 
+app.get('/api/books/:id', (req, resp) => {
+	const book = books.find(book => book.id === parseInt(req.params.id));
+	if (!book) resp.status(404).send('books not found');
+	resp.send(book);
+});
+
 app.listen(8080);
